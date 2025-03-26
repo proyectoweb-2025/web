@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repostería Dulces Sueños</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Estilos básicos */
+        body {
+            background: url('https://source.unsplash.com/1600x900/?cake,bakery') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(255, 105, 180, 0.9);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .nav-link {
+            background: linear-gradient(90deg, #ff69b4 0%, #ffcccb 100%);
+            color: white !important;
+            border-radius: 5px;
+            padding: 5px 15px;
+            transition: background 0.3s ease-in-out, transform 0.2s ease;
+        }
+
+        nav .nav-link:hover {
+            background: linear-gradient(90deg, #ffcccb 0%, #ff69b4 100%);
+            transform: scale(1.1);
+        }
+
+        .jumbotron {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: rgba(255, 105, 180, 0.9);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-top: 4px solid #fff;
+        }
+
+        footer .social-icons i {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icons i:hover {
+            color: #ffcccb;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        main {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal de Bienvenida -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">¡Bienvenido a  Sweet & Fun Cakes!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Descubre los pasteles más deliciosos y personalizables.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Explorar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <h1> Sweet & Fun Cakes</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="cupcakes.html">Cupcakes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pastelesboda.html">Pasteles de boda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pastelessencillos.html">Pasteles sencillos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pastelesfondas.html">Pasteles Fondant</a></li>
+                    <li class="nav-item"><a class="nav-link" href="personalizados.html">Personalizados</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow-sm animate__animated animate__fadeInUp">
+                    <img class="card-img-top" src="img/cup.jpg" alt="Cupcake">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Cupcakes</h5>
+                        <p class="card-text">Los cupcakes más deliciosos para endulzar tu día.</p>
+                        <a href="cupcakes.html" class="btn btn-primary">Ver Más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm animate__animated animate__fadeInUp">
+                    <img class="" src="img/boda.jpg" alt="Pastel de boda">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Pasteles de Boda</h5>
+                        <p class="card-text">Celebra tu día especial con nuestros pasteles de boda.</p>
+                        <a href="pastelesboda.html" class="btn btn-primary">Ver Más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm animate__animated animate__fadeInUp">
+                    <img class="card-img-top" src="img/perso.jpg" alt="Pastel personalizado">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Personalizados</h5>
+                        <p class="card-text">Crea el pastel de tus sueños con nuestro servicio personalizado.</p>
+                        <a href="personalizados.html" class="btn btn-primary">Ver Más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025  Sweet & Fun Cakes</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/191rPyYE4u/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/sweet.andfun?igsh=cXhuNWF2OXNneDdo"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#welcomeModal').modal('show');
+        });
+    </script>
+</body>
+</html>

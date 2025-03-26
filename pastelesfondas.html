@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastel de fondas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="proyecto.css">
+    <script defer src="js/proyecto.js"></script>
+<style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #ff69b4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: white;
+            color: #ff69b4;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header a:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            border-radius: 10px;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .btn-primary {
+            background-color: #ff69b4;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff1493;
+            transform: translateY(-3px);
+        }
+
+        #formulario-pedido, #resumen-pedido {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #formulario-pedido h2, #resumen-pedido h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #formulario-pedido button, #resumen-pedido button {
+            margin-top: 10px;
+        }
+
+        a.btn-secondary {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        a.btn-secondary:hover {
+            background-color: #5a6268;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+<body>
+    <header class="bg-pink text-white text-center py-3">
+        <h1> Sweet & Fun Cakes</h1>
+        <h1>Pasteles de Fondant</h1>
+        <a href="catalogo.html" style="background-color: rgb(255, 255, 255); " >Volver al  Catálogo</a>
+        
+    </header>
+    <h2>Elige tu favorito</h2>
+    <main class="container my-5">
+        <section id="fondant" class="mb-5">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <img src="img/pastel con rosas rosadas.jpg" alt="rosadas" class="img-fluid mb-3" style="max-width: 200px;">
+                            <h3 class="card-title">pastel con cobretura de fondat</h3>
+                            <p class="card-text">Delicioso pastel con un fondat rosado y flores  </p>
+                            <p class="card-text"><strong>Precios:<br></strong>20-25personas :L800 </p>
+                            <button class="btn btn-primary" onclick="mostrarFormularioPedido('pastel con rosas rosadas',800)">Agregar a Pedido</button>
+                        </div>
+                    </div>
+                </div>
+        
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <img src="img/pastele dos planta de rosas.jpg" alt="rosas" class="img-fluid mb-3" style="max-width: 200px;">
+                            <h3 class="card-title">Pastel de boda cobertura de fondant</h3>
+                            <p class="card-text">Celebra a lo maximo y difruta de este pastel</p>
+                            <p class="card-text"><strong>Precios:<br></strong>Personas<br>20-25: L2500 <br>30: L2800</p>
+                            <button class="btn btn-primary" onclick="mostrarFormularioPedido('pastel de dos planta',2500)">Agregar a Pedido</button>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <img src="img/pastel marino.jpg" alt="marino" class="img-fluid mb-3" style="max-width: 200px;">
+                            <h3 class="card-title">fondant Decorativo Marino</h3>
+                            <p class="card-text"></p>
+                            <p class="card-text"><strong>Precios:<br></strong>L650 </p>
+                            <button class="btn btn-primary" onclick="mostrarFormularioPedido('marino',650)">Agregar a Pedido</button>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <img src="img/pastel con fondas.jpg" alt="pastelazul" class="img-fluid mb-3" style="max-width: 200px;">
+                            <h3 class="card-title">Pastel cobertura fondant</h3>
+                            <p class="card-text"></p>
+                            <p class="card-text"><strong>Precios:<br></strong> L700 </p>
+                            <button class="btn btn-primary" onclick="mostrarFormularioPedido('pastelazul', 700)">Agregar a Pedido</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Agrega más productos aquí -->
+                
+            </div>
+        </section>
+        
+        <section id="formulario-pedido" class="mb-5" style="display: none;">
+            <h2>Agregar al Pedido</h2>
+            <form id="formAgregarPedido">
+                <input type="hidden" id="productoNombre">
+                <input type="hidden" id="productoPrecio">
+                <div class="form-group">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" class="form-control" id="cantidad" name="cantidad" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="tamano">Tamaño personas:</label>
+                    <select class="form-control" id="tamano" name="tamano" required>
+                        <option value="pequeno">10</option>
+                        <option value="mediano">15</option>
+                        <option value="grande">20-25</option>
+                        <option value="extra grande">30</option>
+
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success">Agregar</button>
+                <button type="button" class="btn btn-secondary" onclick="ocultarFormularioPedido()">Cancelar</button>
+            </form>
+        </section>
+        <section id="resumen-pedido" class="mb-5">
+            <h2>Resumen del Pedido</h2>
+            <ul id="listaResumen" class="list-group">
+                <!-- El resumen del pedido se mostrará aquí -->
+            </ul>
+            <div id="totalResumen" class="mt-3">
+                <!-- El total a pagar se mostrará aquí -->
+            </div>
+            <button class="btn btn-info" onclick="confirmarPedido()">Confirmar Pedido</button>
+        </section>
+        <a href="proyectofinal.html" class="btn btn-secondary">Volver</a>
+    </main>
+    <script src="js/proyecto.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+
+        function mostrarFormularioPedido(producto, precio) {
+            document.getElementById("formulario-pedido").style.display = "block";
+            document.getElementById("productoNombre").value = producto;
+            document.getElementById("productoPrecio").value = precio;
+        }
+
+        function ocultarFormularioPedido() {
+            document.getElementById("formulario-pedido").style.display = "none";
+        }
+
+        document.getElementById("formAgregarPedido").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const producto = document.getElementById("productoNombre").value;
+            const precio = parseFloat(document.getElementById("productoPrecio").value);
+            const cantidad = parseInt(document.getElementById("cantidad").value);
+            const tamano = document.getElementById("tamano").value;
+
+            // Retrieve existing pedidos from localStorage or initialize an empty array
+            const pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+            pedidos.push({ producto, precio, cantidad, tamano });
+
+            // Save updated pedidos to localStorage
+            localStorage.setItem("pedidos", JSON.stringify(pedidos));
+
+            // Redirect to pedido.html
+            window.location.href = "pedido.html";
+        });
+
+        function actualizarResumen() {
+            const listaResumen = document.getElementById("listaResumen");
+            const totalResumen = document.getElementById("totalResumen");
+            listaResumen.innerHTML = "";
+            let total = 0;
+
+            pedidos.forEach((pedido, index) => {
+                const li = document.createElement("li");
+                li.className = "list-group-item d-flex justify-content-between align-items-center";
+                li.innerHTML = `${pedido.cantidad}x ${pedido.producto} (${pedido.tamano}) - L${(pedido.precio * pedido.cantidad).toFixed(2)}`;
+                total += pedido.precio * pedido.cantidad;
+
+                const btnEliminar = document.createElement("button");
+                btnEliminar.className = "btn btn-danger btn-sm";
+                btnEliminar.textContent = "X";
+                btnEliminar.onclick = () => eliminarPedido(index);
+                li.appendChild(btnEliminar);
+
+                listaResumen.appendChild(li);
+            });
+
+            totalResumen.innerHTML = `<h4>Total: L${total.toFixed(2)}</h4>`;
+        }
+
+        function eliminarPedido(index) {
+            pedidos.splice(index, 1);
+            actualizarResumen();
+        }
+
+        function confirmarPedido() {
+            if (pedidos.length === 0) {
+                alert("No hay pedidos para confirmar.");
+                return;
+            }
+
+            const resumen = {
+                pedidos,
+                total: pedidos.reduce((acc, pedido) => acc + pedido.precio * pedido.cantidad, 0),
+            };
+
+            localStorage.setItem("resumenPedido", JSON.stringify(resumen));
+            alert("Pedido confirmado. Gracias por su compra.");
+
+            pedidos = [];
+            localStorage.removeItem("pedidos");
+            actualizarResumen();
+
+            // Redirect to pedido.html
+            window.location.href = "pedido.html";
+        }
+    </script>
+</body>
+</html>

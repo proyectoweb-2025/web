@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos -  Sweet & Fun Cakes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="proyecto.css">
+    <script defer src="js/proyecto.js"></script>
+</head>
+<body onload="cargarPedido()">
+    <main class="container col-md-6">
+        <h2 class="text-center">Confirmación de Pedido</h2>
+        <section id="detallepedido" class="mb-4">
+            <h4>Detalles del Pedido</h4>
+            <ul id="listapedidos" class="list-group">
+                <!-- Items added to the order will appear here -->
+            </ul>
+            <div id="totalpedidos" class="font-weight-bold mt-3 text-right">
+                <h4>Total: L.0</h4>
+            </div>
+        </section>
+        
+        <section id="datoscliente" class="mb-4">
+            <h4>Datos del Cliente</h4>
+            <form id="formDatosCliente">
+                <div class="form-group">
+                    <label for="nombrecliente">Nombre:</label>
+                    <input type="text" class="form-control" id="nombrecliente" placeholder="Ingrese su nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefonocliente">Teléfono:</label>
+                    <input type="tel" class="form-control" id="telefonocliente" placeholder="Ingrese su número de teléfono" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipoentrega">Tipo de Entrega:</label>
+                    <select class="form-control" id="tipoentrega" required>
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="recoger">Recoger en tienda</option>
+                        <option value="envio">Envío a domicilio</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Confirmar Pedido</button>
+            </form>
+        </section>
+        
+        <section id="mapa" class="mb-5">
+            <h3 class="text-center">Encuéntranos</h3>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509362!2d-122.40136398468175!3d37.78831787975659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064c2e3d837%3A0xd4d5e4e2e4e4e4c3!2sSweet%20%26%20Fun%20Cakes!5e0!3m2!1ses!2sus!4v1615915375001!5m2!1ses!2sus"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+        
+        <div class="text-center">
+            <a href="catalogo.html" class="btn btn-secondary">Volver al Catálogo</a>
+            <a href="proyectofinal.html" class="btn btn-secondary">Volver a la Página Principal</a>
+        </div>
+    </main>
+    
+    <script>
+        let pedidos = [];
+
+        function agregarPedido(producto, precio, cantidad, tamano = null) {
+            pedidos.push({ producto, precio, cantidad, tamano });
+            actualizarResumen();
+        }
+
+        function actualizarResumen() {
+            const lista = document.getElementById("listapedidos");
+            const total = document.getElementById("totalpedidos");
+            lista.innerHTML = "";
+            let totalPagar = 0;
+
+            pedidos.forEach((p, index) => {
+                const item = document.createElement("li");
+                item.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+                item.innerHTML = `
+                    ${p.cantidad}x ${p.producto} ${p.tamano ? `(${p.tamano})` : ""} - L${(p.precio * p.cantidad).toFixed(2)}
+                    <button class="btn btn-danger btn-sm" onclick="eliminarPedido(${index})">X</button>
+`                ;
+                totalPagar += p.precio * p.cantidad;
+                lista.appendChild(item);
+            });
+
+            total.innerHTML = `<h4>Total: L${totalPagar.toFixed(2)}</h4>`;
+        }
+
+        function eliminarPedido(index) {
+            pedidos.splice(index, 1);
+            actualizarResumen();
+        }
+
+        document.getElementById("formDatosCliente").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const nombre = document.getElementById("nombrecliente").value;
+            const telefono = document.getElementById("telefonocliente").value;
+            const entrega = document.getElementById("tipoentrega").value;
+
+            const resumen = JSON.parse(localStorage.getItem("resumenPedido")) || { pedidos: [], total: 0 };
+            resumen.nombre = nombre;
+            resumen.telefono = telefono;
+            resumen.entrega = entrega;
+
+            localStorage.setItem("resumenPedido", JSON.stringify(resumen));
+            alert(`Pedido confirmado. Gracias por su compra, ${nombre}.`);
+            localStorage.removeItem("resumenPedido");
+            window.location.href = "catalogo.html";
+        });
+
+        function cargarPedido() {
+            const resumen = JSON.parse(localStorage.getItem("resumenPedido")) || { pedidos: [], total: 0 };
+            const lista = document.getElementById("listapedidos");
+            const total = document.getElementById("totalpedidos");
+
+            lista.innerHTML = "";
+            resumen.pedidos.forEach((pedido) => {
+                const li = document.createElement("li");
+                li.className = "list-group-item d-flex justify-content-between align-items-center";
+                li.innerHTML = `${pedido.cantidad}x ${pedido.producto} (${pedido.tamano}) - L${(pedido.precio * pedido.cantidad).toFixed(2)}`;
+                lista.appendChild(li);
+            });
+
+            total.innerHTML = `<h4>Total: L${resumen.total.toFixed(2)}</h4>`;
+        }
+
+        function actualizarResumen(pedidos) {
+            const lista = document.getElementById("listapedidos");
+            const total = document.getElementById("totalpedidos");
+            lista.innerHTML = "";
+            let totalPagar = 0;
+
+            pedidos.forEach((p, index) => {
+                const item = document.createElement("li");
+                item.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+                item.innerHTML = `
+                    ${p.cantidad}x ${p.producto} ${p.tamano ? `(${p.tamano})` : ""} - L${(p.precio * p.cantidad).toFixed(2)}
+                    <button class="btn btn-danger btn-sm" onclick="eliminarPedido(${index})">X</button>
+                `;
+                totalPagar += p.precio * p.cantidad;
+                lista.appendChild(item);
+            });
+
+            total.innerHTML = `<h4>Total: L${totalPagar.toFixed(2)}</h4>`;
+        }
+
+        function eliminarPedido(index) {
+            const pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+            pedidos.splice(index, 1);
+            localStorage.setItem("pedidos", JSON.stringify(pedidos));
+            actualizarResumen(pedidos);
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
